@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dbeb846bfcc4410291e790ccedbedc2c" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="tutorsystemModel.admin" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.attendance" Width="1.5" PointX="9" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.complaint" Width="1.5" PointX="10.625" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.cours" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.fees_details" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.fees" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.month_of_fees" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.registration" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.student" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.sysdiagram" Width="1.5" PointX="21.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.teacher_courses" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.teacher_salaries" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.teacher_salary_details" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.teacher" Width="1.5" PointX="2.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_ex" Width="1.5" PointX="21.375" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="tutorsystemModel.FK__feeses__admin_id__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_s__admin__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__attendanc__cours__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__attendanc__stude__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__complaint__cours__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__complaint__stude__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__registrat__cours__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_c__cours__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__fees_deta__fees___656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__fees_deta__regis__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__feeses__month_id__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__feeses__student___300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_s__month__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__registrat__stude__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_c__teach__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_s__teach__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_s__teach__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="tutorsystemModel.FK__teacher_s__teach__693CA210" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_fees" Width="1.5" PointX="19.125" PointY="1.625" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_students" Width="1.5" PointX="19.375" PointY="4.625" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_teachers" Width="1.5" PointX="17" PointY="1.5" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_month" Width="1.5" PointX="19.5" PointY="7.375" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_teacher_salaries" Width="1.5" PointX="17" PointY="4.875" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_attendance" Width="1.5" PointX="16.875" PointY="7.125" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_complaints" Width="1.5" PointX="21.375" PointY="4.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

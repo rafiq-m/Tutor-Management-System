@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tutorsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admins">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
+    <Property Name="phone" Type="nvarchar" MaxLength="13" />
+    <Property Name="login_id" Type="nvarchar" MaxLength="20" />
+    <Property Name="login_password" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="attendance_id" />
+    </Key>
+    <Property Name="attendance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_id" Type="int" />
+    <Property Name="course_id" Type="int" />
+    <Property Name="attendance_time" Type="date" />
+    <Property Name="attendance" Type="bit" />
+  </EntityType>
+  <EntityType Name="complaints">
+    <Key>
+      <PropertyRef Name="complain_id" />
+    </Key>
+    <Property Name="complain_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_id" Type="int" />
+    <Property Name="course_id" Type="int" />
+    <Property Name="complain" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="courses">
+    <Key>
+      <PropertyRef Name="course_id" />
+    </Key>
+    <Property Name="course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="student_fees" Type="int" Nullable="false" />
+    <Property Name="teacher_fees" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fees_details">
+    <Key>
+      <PropertyRef Name="fees_detail_id" />
+    </Key>
+    <Property Name="fees_detail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fees_id" Type="int" />
+    <Property Name="registration_id" Type="int" />
+    <Property Name="paid" Type="bit" />
+  </EntityType>
+  <EntityType Name="feeses">
+    <Key>
+      <PropertyRef Name="fees_id" />
+    </Key>
+    <Property Name="fees_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_id" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="admin_id" Type="int" />
+    <Property Name="month_id" Type="int" />
+  </EntityType>
+  <EntityType Name="month_of_fees">
+    <Key>
+      <PropertyRef Name="month_id" />
+    </Key>
+    <Property Name="month_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="registrations">
+    <Key>
+      <PropertyRef Name="registration_id" />
+    </Key>
+    <Property Name="registration_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_id" Type="int" />
+    <Property Name="course_id" Type="int" />
+    <Property Name="doj" Type="date" />
+  </EntityType>
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
+    <Property Name="phone" Type="nvarchar" MaxLength="13" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="teacher_courses">
+    <Key>
+      <PropertyRef Name="teacher_course_id" />
+    </Key>
+    <Property Name="teacher_course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_id" Type="int" />
+    <Property Name="course_id" Type="int" />
+    <Property Name="doj" Type="date" />
+  </EntityType>
+  <EntityType Name="teacher_salaries">
+    <Key>
+      <PropertyRef Name="teacher_salary_id" />
+    </Key>
+    <Property Name="teacher_salary_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_id" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="admin_id" Type="int" />
+    <Property Name="month_id" Type="int" />
+  </EntityType>
+  <EntityType Name="teacher_salary_details">
+    <Key>
+      <PropertyRef Name="teacher_salary_details_id" />
+    </Key>
+    <Property Name="teacher_salary_details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_salary_id" Type="int" />
+    <Property Name="teacher_course_id" Type="int" />
+    <Property Name="paid" Type="bit" />
+  </EntityType>
+  <EntityType Name="teachers">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+    </Key>
+    <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teacher_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
+    <Property Name="phone" Type="nvarchar" MaxLength="13" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_attendance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_attendance">
+    <Key>
+      <PropertyRef Name="student_name" />
+      <PropertyRef Name="course_name" />
+    </Key>
+    <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="attendance" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_complaints' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_complaints">
+    <Key>
+      <PropertyRef Name="student_name" />
+      <PropertyRef Name="course_name" />
+    </Key>
+    <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="complain" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_ex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_ex">
+    <Key>
+      <PropertyRef Name="student_id" />
+      <PropertyRef Name="student_name" />
+    </Key>
+    <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
+    <Property Name="phone" Type="nvarchar" MaxLength="13" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_fees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_fees">
+    <Key>
+      <PropertyRef Name="student_name" />
+      <PropertyRef Name="month_name" />
+    </Key>
+    <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="paid?" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_month' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_month">
+    <Key>
+      <PropertyRef Name="month_id" />
+      <PropertyRef Name="month_name" />
+    </Key>
+    <Property Name="month_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_students' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_students">
+    <Key>
+      <PropertyRef Name="student_name" />
+      <PropertyRef Name="course_name" />
+      <PropertyRef Name="student_fees" />
+    </Key>
+    <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="doj" Type="date" />
+    <Property Name="student_fees" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_teacher_salaries' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_teacher_salaries">
+    <Key>
+      <PropertyRef Name="teacher_name" />
+      <PropertyRef Name="month_name" />
+    </Key>
+    <Property Name="teacher_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="paid?" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_teachers">
+    <Key>
+      <PropertyRef Name="teacher_name" />
+      <PropertyRef Name="course_name" />
+      <PropertyRef Name="teacher_fees" />
+    </Key>
+    <Property Name="teacher_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="doj" Type="date" />
+    <Property Name="teacher_fees" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__attendanc__cours__5535A963">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_id" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__attendanc__stude__5441852A">
+    <End Role="students" Type="Self.students" Multiplicity="0..1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__complaint__cours__5DCAEF64">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="complaints" Type="Self.complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_id" />
+      </Principal>
+      <Dependent Role="complaints">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__complaint__stude__5CD6CB2B">
+    <End Role="students" Type="Self.students" Multiplicity="0..1" />
+    <End Role="complaints" Type="Self.complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="complaints">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fees_deta__fees___656C112C">
+    <End Role="feeses" Type="Self.feeses" Multiplicity="0..1" />
+    <End Role="fees_details" Type="Self.fees_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="feeses">
+        <PropertyRef Name="fees_id" />
+      </Principal>
+      <Dependent Role="fees_details">
+        <PropertyRef Name="fees_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fees_deta__regis__66603565">
+    <End Role="registrations" Type="Self.registrations" Multiplicity="0..1" />
+    <End Role="fees_details" Type="Self.fees_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registrations">
+        <PropertyRef Name="registration_id" />
+      </Principal>
+      <Dependent Role="fees_details">
+        <PropertyRef Name="registration_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feeses__admin_id__5629CD9C">
+    <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
+    <End Role="feeses" Type="Self.feeses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admins">
+        <PropertyRef Name="admin_id" />
+      </Principal>
+      <Dependent Role="feeses">
+        <PropertyRef Name="admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feeses__month_id__619B8048">
+    <End Role="month_of_fees" Type="Self.month_of_fees" Multiplicity="0..1" />
+    <End Role="feeses" Type="Self.feeses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="month_of_fees">
+        <PropertyRef Name="month_id" />
+      </Principal>
+      <Dependent Role="feeses">
+        <PropertyRef Name="month_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__feeses__student___300424B4">
+    <End Role="students" Type="Self.students" Multiplicity="0..1" />
+    <End Role="feeses" Type="Self.feeses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="feeses">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__registrat__cours__2D27B809">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="registrations" Type="Self.registrations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_id" />
+      </Principal>
+      <Dependent Role="registrations">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__registrat__stude__2C3393D0">
+    <End Role="students" Type="Self.students" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="registrations" Type="Self.registrations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="registrations">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_c__cours__37A5467C">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="teacher_courses" Type="Self.teacher_courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="course_id" />
+      </Principal>
+      <Dependent Role="teacher_courses">
+        <PropertyRef Name="course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_c__teach__36B12243">
+    <End Role="teachers" Type="Self.teachers" Multiplicity="0..1" />
+    <End Role="teacher_courses" Type="Self.teacher_courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachers">
+        <PropertyRef Name="teacher_id" />
+      </Principal>
+      <Dependent Role="teacher_courses">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_s__admin__571DF1D5">
+    <End Role="admins" Type="Self.admins" Multiplicity="0..1" />
+    <End Role="teacher_salaries" Type="Self.teacher_salaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admins">
+        <PropertyRef Name="admin_id" />
+      </Principal>
+      <Dependent Role="teacher_salaries">
+        <PropertyRef Name="admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_s__month__60A75C0F">
+    <End Role="month_of_fees" Type="Self.month_of_fees" Multiplicity="0..1" />
+    <End Role="teacher_salaries" Type="Self.teacher_salaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="month_of_fees">
+        <PropertyRef Name="month_id" />
+      </Principal>
+      <Dependent Role="teacher_salaries">
+        <PropertyRef Name="month_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_s__teach__3A81B327">
+    <End Role="teachers" Type="Self.teachers" Multiplicity="0..1" />
+    <End Role="teacher_salaries" Type="Self.teacher_salaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachers">
+        <PropertyRef Name="teacher_id" />
+      </Principal>
+      <Dependent Role="teacher_salaries">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_s__teach__693CA210">
+    <End Role="teacher_salaries" Type="Self.teacher_salaries" Multiplicity="0..1" />
+    <End Role="teacher_salary_details" Type="Self.teacher_salary_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher_salaries">
+        <PropertyRef Name="teacher_salary_id" />
+      </Principal>
+      <Dependent Role="teacher_salary_details">
+        <PropertyRef Name="teacher_salary_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__teacher_s__teach__6A30C649">
+    <End Role="teacher_courses" Type="Self.teacher_courses" Multiplicity="0..1" />
+    <End Role="teacher_salary_details" Type="Self.teacher_salary_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher_courses">
+        <PropertyRef Name="teacher_course_id" />
+      </Principal>
+      <Dependent Role="teacher_salary_details">
+        <PropertyRef Name="teacher_course_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="tutorsystemModelStoreContainer">
+    <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="complaints" EntityType="Self.complaints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fees_details" EntityType="Self.fees_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="feeses" EntityType="Self.feeses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="month_of_fees" EntityType="Self.month_of_fees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registrations" EntityType="Self.registrations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher_courses" EntityType="Self.teacher_courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher_salaries" EntityType="Self.teacher_salaries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher_salary_details" EntityType="Self.teacher_salary_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_attendance" EntityType="Self.vw_attendance" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_attendance].[student_name] AS [student_name], 
+    [vw_attendance].[course_name] AS [course_name], 
+    [vw_attendance].[attendance] AS [attendance]
+    FROM [dbo].[vw_attendance] AS [vw_attendance]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_complaints" EntityType="Self.vw_complaints" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_complaints].[student_name] AS [student_name], 
+    [vw_complaints].[course_name] AS [course_name], 
+    [vw_complaints].[complain] AS [complain]
+    FROM [dbo].[vw_complaints] AS [vw_complaints]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_ex" EntityType="Self.vw_ex" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_ex].[student_id] AS [student_id], 
+    [vw_ex].[student_name] AS [student_name], 
+    [vw_ex].[DOB] AS [DOB], 
+    [vw_ex].[CNIC] AS [CNIC], 
+    [vw_ex].[phone] AS [phone]
+    FROM [dbo].[vw_ex] AS [vw_ex]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_fees" EntityType="Self.vw_fees" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_fees].[student_name] AS [student_name], 
+    [vw_fees].[DOB] AS [DOB], 
+    [vw_fees].[month_name] AS [month_name], 
+    [vw_fees].[paid?] AS [paid?]
+    FROM [dbo].[vw_fees] AS [vw_fees]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_month" EntityType="Self.vw_month" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_month].[month_id] AS [month_id], 
+    [vw_month].[month_name] AS [month_name]
+    FROM [dbo].[vw_month] AS [vw_month]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_students" EntityType="Self.vw_students" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_students].[student_name] AS [student_name], 
+    [vw_students].[CNIC] AS [CNIC], 
+    [vw_students].[DOB] AS [DOB], 
+    [vw_students].[course_name] AS [course_name], 
+    [vw_students].[doj] AS [doj], 
+    [vw_students].[student_fees] AS [student_fees]
+    FROM [dbo].[vw_students] AS [vw_students]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_teacher_salaries" EntityType="Self.vw_teacher_salaries" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_teacher_salaries].[teacher_name] AS [teacher_name], 
+    [vw_teacher_salaries].[DOB] AS [DOB], 
+    [vw_teacher_salaries].[month_name] AS [month_name], 
+    [vw_teacher_salaries].[paid?] AS [paid?]
+    FROM [dbo].[vw_teacher_salaries] AS [vw_teacher_salaries]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_teachers" EntityType="Self.vw_teachers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_teachers].[teacher_name] AS [teacher_name], 
+    [vw_teachers].[CNIC] AS [CNIC], 
+    [vw_teachers].[DOB] AS [DOB], 
+    [vw_teachers].[course_name] AS [course_name], 
+    [vw_teachers].[doj] AS [doj], 
+    [vw_teachers].[teacher_fees] AS [teacher_fees]
+    FROM [dbo].[vw_teachers] AS [vw_teachers]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__attendanc__cours__5535A963" Association="Self.FK__attendanc__cours__5535A963">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__attendanc__stude__5441852A" Association="Self.FK__attendanc__stude__5441852A">
+      <End Role="students" EntitySet="students" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__complaint__cours__5DCAEF64" Association="Self.FK__complaint__cours__5DCAEF64">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="complaints" EntitySet="complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__complaint__stude__5CD6CB2B" Association="Self.FK__complaint__stude__5CD6CB2B">
+      <End Role="students" EntitySet="students" />
+      <End Role="complaints" EntitySet="complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fees_deta__fees___656C112C" Association="Self.FK__fees_deta__fees___656C112C">
+      <End Role="feeses" EntitySet="feeses" />
+      <End Role="fees_details" EntitySet="fees_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fees_deta__regis__66603565" Association="Self.FK__fees_deta__regis__66603565">
+      <End Role="registrations" EntitySet="registrations" />
+      <End Role="fees_details" EntitySet="fees_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feeses__admin_id__5629CD9C" Association="Self.FK__feeses__admin_id__5629CD9C">
+      <End Role="admins" EntitySet="admins" />
+      <End Role="feeses" EntitySet="feeses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feeses__month_id__619B8048" Association="Self.FK__feeses__month_id__619B8048">
+      <End Role="month_of_fees" EntitySet="month_of_fees" />
+      <End Role="feeses" EntitySet="feeses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__feeses__student___300424B4" Association="Self.FK__feeses__student___300424B4">
+      <End Role="students" EntitySet="students" />
+      <End Role="feeses" EntitySet="feeses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__registrat__cours__2D27B809" Association="Self.FK__registrat__cours__2D27B809">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="registrations" EntitySet="registrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__registrat__stude__2C3393D0" Association="Self.FK__registrat__stude__2C3393D0">
+      <End Role="students" EntitySet="students" />
+      <End Role="registrations" EntitySet="registrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_c__cours__37A5467C" Association="Self.FK__teacher_c__cours__37A5467C">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="teacher_courses" EntitySet="teacher_courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_c__teach__36B12243" Association="Self.FK__teacher_c__teach__36B12243">
+      <End Role="teachers" EntitySet="teachers" />
+      <End Role="teacher_courses" EntitySet="teacher_courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_s__admin__571DF1D5" Association="Self.FK__teacher_s__admin__571DF1D5">
+      <End Role="admins" EntitySet="admins" />
+      <End Role="teacher_salaries" EntitySet="teacher_salaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_s__month__60A75C0F" Association="Self.FK__teacher_s__month__60A75C0F">
+      <End Role="month_of_fees" EntitySet="month_of_fees" />
+      <End Role="teacher_salaries" EntitySet="teacher_salaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_s__teach__3A81B327" Association="Self.FK__teacher_s__teach__3A81B327">
+      <End Role="teachers" EntitySet="teachers" />
+      <End Role="teacher_salaries" EntitySet="teacher_salaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_s__teach__693CA210" Association="Self.FK__teacher_s__teach__693CA210">
+      <End Role="teacher_salaries" EntitySet="teacher_salaries" />
+      <End Role="teacher_salary_details" EntitySet="teacher_salary_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__teacher_s__teach__6A30C649" Association="Self.FK__teacher_s__teach__6A30C649">
+      <End Role="teacher_courses" EntitySet="teacher_courses" />
+      <End Role="teacher_salary_details" EntitySet="teacher_salary_details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

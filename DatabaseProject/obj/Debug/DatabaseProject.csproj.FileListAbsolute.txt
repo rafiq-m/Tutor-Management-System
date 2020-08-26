@@ -1,0 +1,17 @@
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe.config
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.pdb
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.dll
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.xml
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csprojAssemblyReference.cache
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Form1.resources
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Properties.Resources.resources
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.GenerateResource.cache
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CoreCompileInputs.cache
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CopyComplete
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.exe
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.pdb
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.StudentsProcess.students.resources
+C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.ShowAll.ShowData.resources
