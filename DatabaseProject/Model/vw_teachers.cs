@@ -14,10 +14,10 @@ namespace DatabaseProject.Model
     
     public partial class vw_teachers
     {
-        public string teacher_name { get; set; }
+        public string Teacher_Name { get; set; }
         public string CNIC { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
-        public string course_name { get; set; }
+        public string Course_Name { get; set; }
         public Nullable<System.DateTime> doj { get; set; }
         public int teacher_fees { get; set; }
     }

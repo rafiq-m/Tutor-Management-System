@@ -9,11 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DatabaseProject
 {
     public partial class Form1 : Form
     {
-        tutorsystemEntities db = new tutorsystemEntities();
+        tutorsystemEntities1 db = new tutorsystemEntities1();
         public Form1()
         {
             InitializeComponent();

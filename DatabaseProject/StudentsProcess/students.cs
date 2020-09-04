@@ -14,7 +14,7 @@ namespace DatabaseProject.StudentsProcess
 {
     public partial class students : Form
     {
-        tutorsystemEntities db = new tutorsystemEntities();
+        tutorsystemEntities1 db = new tutorsystemEntities1();
         public students()
         {
             InitializeComponent();

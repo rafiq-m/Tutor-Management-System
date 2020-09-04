@@ -14,6 +14,7 @@ namespace DatabaseProject.Model
     
     public partial class vw_teacher_salaries
     {
+        public int teacher_id { get; set; }
         public string teacher_name { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string month_name { get; set; }

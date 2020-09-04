@@ -14,9 +14,10 @@ namespace DatabaseProject.Model
     
     public partial class vw_fees
     {
-        public string student_name { get; set; }
-        public Nullable<System.DateTime> DOB { get; set; }
-        public string month_name { get; set; }
-        public Nullable<int> paid_ { get; set; }
+        public int fees_id { get; set; }
+        public string Student_Name { get; set; }
+        public string Admin_Name { get; set; }
+        public string Month_Name { get; set; }
+        public Nullable<int> amount { get; set; }
     }
 }

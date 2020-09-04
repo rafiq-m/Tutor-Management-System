@@ -4,22 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dbeb846bfcc4410291e790ccedbedc2c" Name="Diagram1" ZoomLevel="60">
+      <Diagram DiagramId="01aa3a48869442d8a80d858b9b78df9d" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="tutorsystemModel.admin" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.attendance" Width="1.5" PointX="9" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.complaint" Width="1.5" PointX="10.625" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.cours" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.attendance" Width="1.5" PointX="8.625" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.complaint" Width="1.5" PointX="11.375" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.cours" Width="1.5" PointX="3.625" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="tutorsystemModel.fees_details" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.fees" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.month_of_fees" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.registration" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.student" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.sysdiagram" Width="1.5" PointX="21.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.fees" Width="1.5" PointX="3.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.month_of_fees" Width="1.5" PointX="0.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.registration" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.student" Width="1.5" PointX="0.875" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.sysdiagram" Width="1.5" PointX="23.125" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="tutorsystemModel.teacher_courses" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="tutorsystemModel.teacher_salaries" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="tutorsystemModel.teacher_salary_details" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.teacher" Width="1.5" PointX="2.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_ex" Width="1.5" PointX="21.375" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.teacher" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_attendance" Width="1.5" PointX="18.125" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_complaints" Width="1.5" PointX="19.125" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_ex" Width="1.5" PointX="23.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_fees" Width="1.5" PointX="19.875" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_month" Width="1.5" PointX="25.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_monthbhosri" Width="1.5" PointX="21.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_students" Width="1.5" PointX="25.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_teacher_salaries" Width="1.5" PointX="25.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_teachers" Width="1.5" PointX="27.5" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="tutorsystemModel.FK__feeses__admin_id__5629CD9C" ManuallyRouted="false" />
         <AssociationConnector Association="tutorsystemModel.FK__teacher_s__admin__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="tutorsystemModel.FK__attendanc__cours__5535A963" ManuallyRouted="false" />
@@ -38,13 +46,9 @@
         <AssociationConnector Association="tutorsystemModel.FK__teacher_s__teach__6A30C649" ManuallyRouted="false" />
         <AssociationConnector Association="tutorsystemModel.FK__teacher_s__teach__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="tutorsystemModel.FK__teacher_s__teach__693CA210" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_fees" Width="1.5" PointX="19.125" PointY="1.625" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_students" Width="1.5" PointX="19.375" PointY="4.625" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_teachers" Width="1.5" PointX="17" PointY="1.5" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_month" Width="1.5" PointX="19.5" PointY="7.375" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_teacher_salaries" Width="1.5" PointX="17" PointY="4.875" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_attendance" Width="1.5" PointX="16.875" PointY="7.125" />
-        <EntityTypeShape EntityType="tutorsystemModel.vw_complaints" Width="1.5" PointX="21.375" PointY="4.125" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_registrations" Width="1.5" PointX="22.875" PointY="7.75" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_fees_details" Width="1.5" PointX="20.25" PointY="5.375" />
+        <EntityTypeShape EntityType="tutorsystemModel.vw_teacher_courses" Width="1.5" PointX="28.25" PointY="6.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

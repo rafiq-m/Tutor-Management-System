@@ -169,6 +169,27 @@
     <NavigationProperty Name="teacher_courses" Relationship="Self.FK__teacher_c__teach__36B12243" FromRole="teachers" ToRole="teacher_courses" />
     <NavigationProperty Name="teacher_salaries" Relationship="Self.FK__teacher_s__teach__3A81B327" FromRole="teachers" ToRole="teacher_salaries" />
   </EntityType>
+  <EntityType Name="vw_attendance">
+    <Key>
+      <PropertyRef Name="student_name" />
+      <PropertyRef Name="course_name" />
+    </Key>
+    <Property Name="student_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="course_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="attendance" Type="Boolean" />
+    <Property Name="attendance_time" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vw_complaints">
+    <Key>
+      <PropertyRef Name="complain_id" />
+      <PropertyRef Name="student_name" />
+      <PropertyRef Name="course_name" />
+    </Key>
+    <Property Name="complain_id" Type="Int32" Nullable="false" />
+    <Property Name="student_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="course_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="complain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="vw_ex">
     <Key>
       <PropertyRef Name="student_id" />
@@ -179,6 +200,73 @@
     <Property Name="DOB" Type="DateTime" Precision="0" />
     <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_fees">
+    <Key>
+      <PropertyRef Name="fees_id" />
+      <PropertyRef Name="Student_Name" />
+      <PropertyRef Name="Admin_Name" />
+      <PropertyRef Name="Month_Name" />
+    </Key>
+    <Property Name="fees_id" Type="Int32" Nullable="false" />
+    <Property Name="Student_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Admin_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Month_Name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="amount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vw_month">
+    <Key>
+      <PropertyRef Name="month_id" />
+      <PropertyRef Name="month_name" />
+    </Key>
+    <Property Name="month_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="month_name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_monthbhosri">
+    <Key>
+      <PropertyRef Name="month_id" />
+      <PropertyRef Name="month_name" />
+    </Key>
+    <Property Name="month_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="month_name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_students">
+    <Key>
+      <PropertyRef Name="Student_Name" />
+      <PropertyRef Name="Course_Name" />
+      <PropertyRef Name="student_fees" />
+    </Key>
+    <Property Name="Student_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Course_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="doj" Type="DateTime" Precision="0" />
+    <Property Name="student_fees" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_teacher_salaries">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+      <PropertyRef Name="teacher_name" />
+      <PropertyRef Name="month_name" />
+    </Key>
+    <Property Name="teacher_id" Type="Int32" Nullable="false" />
+    <Property Name="teacher_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="month_name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="paid_" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vw_teachers">
+    <Key>
+      <PropertyRef Name="Teacher_Name" />
+      <PropertyRef Name="Course_Name" />
+      <PropertyRef Name="teacher_fees" />
+    </Key>
+    <Property Name="Teacher_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Course_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="doj" Type="DateTime" Precision="0" />
+    <Property Name="teacher_fees" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK__feeses__admin_id__5629CD9C">
     <End Role="admins" Type="Self.admin" Multiplicity="0..1" />
@@ -400,7 +488,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="tutorsystemEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="tutorsystemEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="admins" EntityType="Self.admin" />
     <EntitySet Name="attendances" EntityType="Self.attendance" />
     <EntitySet Name="complaints" EntityType="Self.complaint" />
@@ -415,7 +503,15 @@
     <EntitySet Name="teacher_salaries" EntityType="Self.teacher_salaries" />
     <EntitySet Name="teacher_salary_details" EntityType="Self.teacher_salary_details" />
     <EntitySet Name="teachers" EntityType="Self.teacher" />
+    <EntitySet Name="vw_attendance" EntityType="Self.vw_attendance" />
+    <EntitySet Name="vw_complaints" EntityType="Self.vw_complaints" />
     <EntitySet Name="vw_ex" EntityType="Self.vw_ex" />
+    <EntitySet Name="vw_fees" EntityType="Self.vw_fees" />
+    <EntitySet Name="vw_month" EntityType="Self.vw_month" />
+    <EntitySet Name="vw_monthbhosri" EntityType="Self.vw_monthbhosri" />
+    <EntitySet Name="vw_students" EntityType="Self.vw_students" />
+    <EntitySet Name="vw_teacher_salaries" EntityType="Self.vw_teacher_salaries" />
+    <EntitySet Name="vw_teachers" EntityType="Self.vw_teachers" />
     <AssociationSet Name="FK__feeses__admin_id__5629CD9C" Association="Self.FK__feeses__admin_id__5629CD9C">
       <End Role="admins" EntitySet="admins" />
       <End Role="feeses" EntitySet="feeses" />
@@ -488,84 +584,38 @@
       <End Role="teacher_salaries" EntitySet="teacher_salaries" />
       <End Role="teacher_salary_details" EntitySet="teacher_salary_details" />
     </AssociationSet>
-    <EntitySet Name="vw_fees" EntityType="tutorsystemModel.vw_fees" />
-    <EntitySet Name="vw_students" EntityType="tutorsystemModel.vw_students" />
-    <EntitySet Name="vw_teachers" EntityType="tutorsystemModel.vw_teachers" />
-    <EntitySet Name="vw_month" EntityType="tutorsystemModel.vw_month" />
-    <EntitySet Name="vw_teacher_salaries" EntityType="tutorsystemModel.vw_teacher_salaries" />
-    <EntitySet Name="vw_attendance" EntityType="tutorsystemModel.vw_attendance" />
-    <EntitySet Name="vw_complaints" EntityType="tutorsystemModel.vw_complaints" />
+    <EntitySet Name="vw_registrations" EntityType="tutorsystemModel.vw_registrations" />
+    <EntitySet Name="vw_fees_details" EntityType="tutorsystemModel.vw_fees_details" />
+    <EntitySet Name="vw_teacher_courses" EntityType="tutorsystemModel.vw_teacher_courses" />
   </EntityContainer>
-  <EntityType Name="vw_fees">
+  <EntityType Name="vw_registrations">
     <Key>
-      <PropertyRef Name="student_name" />
-      <PropertyRef Name="month_name" />
+      <PropertyRef Name="Student_Name" />
+      <PropertyRef Name="Course_Name" />
     </Key>
-    <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="DOB" Type="DateTime" Precision="0" />
-    <Property Name="month_name" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-    <Property Name="paid_" Type="Int32" />
+    <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Course_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Of_joining" Type="DateTime" Precision="0" />
   </EntityType>
-  <EntityType Name="vw_students">
+  <EntityType Name="vw_fees_details">
     <Key>
-      <PropertyRef Name="student_name" />
-      <PropertyRef Name="course_name" />
-      <PropertyRef Name="student_fees" />
+      <PropertyRef Name="fees_detail_id" />
+      <PropertyRef Name="Student_Name" />
+      <PropertyRef Name="Course_Name" />
     </Key>
-    <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="DOB" Type="DateTime" Precision="0" />
-    <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="doj" Type="DateTime" Precision="0" />
-    <Property Name="student_fees" Type="Int32" Nullable="false" />
+    <Property Name="fees_detail_id" Type="Int32" Nullable="false" />
+    <Property Name="Fees_ID" Type="Int32" />
+    <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Of_Joining" Type="DateTime" Precision="0" />
+    <Property Name="Course_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="vw_teachers">
+  <EntityType Name="vw_teacher_courses">
     <Key>
-      <PropertyRef Name="teacher_name" />
-      <PropertyRef Name="course_name" />
-      <PropertyRef Name="teacher_fees" />
+      <PropertyRef Name="Teacher_Course_ID" />
     </Key>
-    <Property Name="teacher_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="DOB" Type="DateTime" Precision="0" />
-    <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="doj" Type="DateTime" Precision="0" />
-    <Property Name="teacher_fees" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="vw_month">
-    <Key>
-      <PropertyRef Name="month_id" />
-      <PropertyRef Name="month_name" />
-    </Key>
-    <Property Name="month_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="month_name" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="vw_teacher_salaries">
-    <Key>
-      <PropertyRef Name="teacher_name" />
-      <PropertyRef Name="month_name" />
-    </Key>
-    <Property Name="teacher_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="DOB" Type="DateTime" Precision="0" />
-    <Property Name="month_name" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-    <Property Name="paid_" Type="Int32" />
-  </EntityType>
-  <EntityType Name="vw_attendance">
-    <Key>
-      <PropertyRef Name="student_name" />
-      <PropertyRef Name="course_name" />
-    </Key>
-    <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="attendance" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="vw_complaints">
-    <Key>
-      <PropertyRef Name="student_name" />
-      <PropertyRef Name="course_name" />
-    </Key>
-    <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="complain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Teacher_Course_ID" Type="Int32" Nullable="false" />
+    <Property Name="Teacher_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Course_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Of_Joining" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

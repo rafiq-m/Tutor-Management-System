@@ -17,5 +17,6 @@ namespace DatabaseProject.Model
         public string student_name { get; set; }
         public string course_name { get; set; }
         public Nullable<bool> attendance { get; set; }
+        public Nullable<System.DateTime> attendance_time { get; set; }
     }
 }

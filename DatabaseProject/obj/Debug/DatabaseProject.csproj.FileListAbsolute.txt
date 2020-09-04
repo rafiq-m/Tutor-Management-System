@@ -15,3 +15,35 @@ C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject
 C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.pdb
 C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.StudentsProcess.students.resources
 C:\Users\Rafiq\Desktop\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.ShowAll.ShowData.resources
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe.config
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.pdb
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.dll
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.xml
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csprojAssemblyReference.cache
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Form1.resources
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Properties.Resources.resources
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.ShowAll.ShowData.resources
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.StudentsProcess.students.resources
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.GenerateResource.cache
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CoreCompileInputs.cache
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CopyComplete
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.exe
+C:\Users\Rafiq\Desktop\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.pdb
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe.config
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.pdb
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.xml
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\bin\Debug\EntityFramework.SqlServer.xml
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csprojAssemblyReference.cache
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Form1.resources
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Properties.Resources.resources
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.ShowAll.ShowData.resources
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.StudentsProcess.students.resources
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.GenerateResource.cache
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CoreCompileInputs.cache
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CopyComplete
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.exe
+D:\Google Classroom\Databases\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.pdb

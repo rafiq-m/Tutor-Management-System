@@ -13,7 +13,7 @@ namespace DatabaseProject.ShowAll
 {
     public partial class ShowData : Form
     {
-        tutorsystemEntities db = new tutorsystemEntities();
+        tutorsystemEntities1 db = new tutorsystemEntities1();
         public ShowData()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace DatabaseProject.ShowAll
         private void ShowData_Load(object sender, EventArgs e)
         {
             string[] items = { "students", "teachers", "admin", "course", "registration",
-                "month", "teacher_course","complaints","attendance", "fees","teacher_salaries" };
+                "month", "teacher_course","complaints","attendance", "fees","teacher_salaries","fees_details" };
 
             for (int i = 0; i < items.Length; i++)
             {
@@ -74,6 +74,19 @@ namespace DatabaseProject.ShowAll
             {
                 dataGridView1.DataSource = db.courses.ToList();
             }
+            else if (comboBox2.SelectedItem.ToString() == "registration")
+            {
+                dataGridView1.DataSource = db.vw_registrations.ToList();
+            }
+            else if (comboBox2.SelectedItem.ToString() == "teacher_course")
+            {
+                dataGridView1.DataSource = db.vw_teacher_courses.ToList();
+            }
+            else if (comboBox2.SelectedItem.ToString() == "fees_details")
+            {
+                dataGridView1.DataSource = db.vw_fees_details.ToList();
+            }
+
 
         }
     }

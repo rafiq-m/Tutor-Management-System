@@ -13,10 +13,10 @@ namespace DatabaseProject.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class tutorsystemEntities : DbContext
+    public partial class tutorsystemEntities1 : DbContext
     {
-        public tutorsystemEntities()
-            : base("name=tutorsystemEntities")
+        public tutorsystemEntities1()
+            : base("name=tutorsystemEntities1")
         {
         }
     
@@ -39,13 +39,17 @@ namespace DatabaseProject.Model
         public virtual DbSet<teacher_salaries> teacher_salaries { get; set; }
         public virtual DbSet<teacher_salary_details> teacher_salary_details { get; set; }
         public virtual DbSet<teacher> teachers { get; set; }
-        public virtual DbSet<vw_ex> vw_ex { get; set; }
-        public virtual DbSet<vw_fees> vw_fees { get; set; }
-        public virtual DbSet<vw_students> vw_students { get; set; }
-        public virtual DbSet<vw_teachers> vw_teachers { get; set; }
-        public virtual DbSet<vw_month> vw_month { get; set; }
-        public virtual DbSet<vw_teacher_salaries> vw_teacher_salaries { get; set; }
         public virtual DbSet<vw_attendance> vw_attendance { get; set; }
         public virtual DbSet<vw_complaints> vw_complaints { get; set; }
+        public virtual DbSet<vw_ex> vw_ex { get; set; }
+        public virtual DbSet<vw_fees> vw_fees { get; set; }
+        public virtual DbSet<vw_month> vw_month { get; set; }
+        public virtual DbSet<vw_monthbhosri> vw_monthbhosri { get; set; }
+        public virtual DbSet<vw_students> vw_students { get; set; }
+        public virtual DbSet<vw_teacher_salaries> vw_teacher_salaries { get; set; }
+        public virtual DbSet<vw_teachers> vw_teachers { get; set; }
+        public virtual DbSet<vw_registrations> vw_registrations { get; set; }
+        public virtual DbSet<vw_fees_details> vw_fees_details { get; set; }
+        public virtual DbSet<vw_teacher_courses> vw_teacher_courses { get; set; }
     }
 }

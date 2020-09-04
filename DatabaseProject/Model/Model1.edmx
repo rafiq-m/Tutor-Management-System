@@ -148,14 +148,17 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_attendance' does not have a pri
           <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="attendance" Type="bit" />
+          <Property Name="attendance_time" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'tutorsystem.dbo.vw_complaints' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_complaints">
           <Key>
+            <PropertyRef Name="complain_id" />
             <PropertyRef Name="student_name" />
             <PropertyRef Name="course_name" />
           </Key>
+          <Property Name="complain_id" Type="int" Nullable="false" />
           <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="complain" Type="nvarchar" MaxLength="100" />
@@ -177,13 +180,30 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_ex' does not have a primary key
 warning 6002: The table/view 'tutorsystem.dbo.vw_fees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_fees">
           <Key>
-            <PropertyRef Name="student_name" />
-            <PropertyRef Name="month_name" />
+            <PropertyRef Name="fees_id" />
+            <PropertyRef Name="Student Name" />
+            <PropertyRef Name="Admin Name" />
+            <PropertyRef Name="Month Name" />
           </Key>
-          <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="DOB" Type="date" />
-          <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
-          <Property Name="paid?" Type="int" />
+          <Property Name="fees_id" Type="int" Nullable="false" />
+          <Property Name="Student Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Admin Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Month Name" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="amount" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_fees_details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_fees_details">
+          <Key>
+            <PropertyRef Name="fees_detail_id" />
+            <PropertyRef Name="Student Name" />
+            <PropertyRef Name="Course Name" />
+          </Key>
+          <Property Name="fees_detail_id" Type="int" Nullable="false" />
+          <Property Name="Fees ID" Type="int" />
+          <Property Name="Student Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Date Of Joining" Type="date" />
+          <Property Name="Course Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'tutorsystem.dbo.vw_month' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -196,27 +216,61 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_month' does not have a primary 
           <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_monthbhosri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_monthbhosri">
+          <Key>
+            <PropertyRef Name="month_id" />
+            <PropertyRef Name="month_name" />
+          </Key>
+          <Property Name="month_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_registrations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_registrations">
+          <Key>
+            <PropertyRef Name="Student Name" />
+            <PropertyRef Name="Course Name" />
+          </Key>
+          <Property Name="Student Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Course Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Date Of joining" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'tutorsystem.dbo.vw_students' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_students">
           <Key>
-            <PropertyRef Name="student_name" />
-            <PropertyRef Name="course_name" />
+            <PropertyRef Name="Student Name" />
+            <PropertyRef Name="Course Name" />
             <PropertyRef Name="student_fees" />
           </Key>
-          <Property Name="student_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Student Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
           <Property Name="DOB" Type="date" />
-          <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Course Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="doj" Type="date" />
           <Property Name="student_fees" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'tutorsystem.dbo.vw_teacher_courses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_teacher_courses">
+          <Key>
+            <PropertyRef Name="Teacher Course ID" />
+          </Key>
+          <Property Name="Teacher Course ID" Type="int" Nullable="false" />
+          <Property Name="Teacher Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Course Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Date Of Joining" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'tutorsystem.dbo.vw_teacher_salaries' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_teacher_salaries">
           <Key>
+            <PropertyRef Name="teacher_id" />
             <PropertyRef Name="teacher_name" />
             <PropertyRef Name="month_name" />
           </Key>
+          <Property Name="teacher_id" Type="int" Nullable="false" />
           <Property Name="teacher_name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="DOB" Type="date" />
           <Property Name="month_name" Type="nvarchar" MaxLength="12" Nullable="false" />
@@ -226,14 +280,14 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teacher_salaries' does not have
 warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_teachers">
           <Key>
-            <PropertyRef Name="teacher_name" />
-            <PropertyRef Name="course_name" />
+            <PropertyRef Name="Teacher Name" />
+            <PropertyRef Name="Course Name" />
             <PropertyRef Name="teacher_fees" />
           </Key>
-          <Property Name="teacher_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Teacher Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="CNIC" Type="nvarchar" MaxLength="20" />
           <Property Name="DOB" Type="date" />
-          <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Course Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="doj" Type="date" />
           <Property Name="teacher_fees" Type="int" Nullable="false" />
         </EntityType>
@@ -476,11 +530,13 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
             <DefiningQuery>SELECT 
     [vw_attendance].[student_name] AS [student_name], 
     [vw_attendance].[course_name] AS [course_name], 
-    [vw_attendance].[attendance] AS [attendance]
+    [vw_attendance].[attendance] AS [attendance], 
+    [vw_attendance].[attendance_time] AS [attendance_time]
     FROM [dbo].[vw_attendance] AS [vw_attendance]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_complaints" EntityType="Self.vw_complaints" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vw_complaints].[complain_id] AS [complain_id], 
     [vw_complaints].[student_name] AS [student_name], 
     [vw_complaints].[course_name] AS [course_name], 
     [vw_complaints].[complain] AS [complain]
@@ -497,11 +553,21 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
           </EntitySet>
           <EntitySet Name="vw_fees" EntityType="Self.vw_fees" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_fees].[student_name] AS [student_name], 
-    [vw_fees].[DOB] AS [DOB], 
-    [vw_fees].[month_name] AS [month_name], 
-    [vw_fees].[paid?] AS [paid?]
+    [vw_fees].[fees_id] AS [fees_id], 
+    [vw_fees].[Student Name] AS [Student Name], 
+    [vw_fees].[Admin Name] AS [Admin Name], 
+    [vw_fees].[Month Name] AS [Month Name], 
+    [vw_fees].[amount] AS [amount]
     FROM [dbo].[vw_fees] AS [vw_fees]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_fees_details" EntityType="Self.vw_fees_details" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_fees_details].[fees_detail_id] AS [fees_detail_id], 
+    [vw_fees_details].[Fees ID] AS [Fees ID], 
+    [vw_fees_details].[Student Name] AS [Student Name], 
+    [vw_fees_details].[Date Of Joining] AS [Date Of Joining], 
+    [vw_fees_details].[Course Name] AS [Course Name]
+    FROM [dbo].[vw_fees_details] AS [vw_fees_details]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_month" EntityType="Self.vw_month" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -509,18 +575,40 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
     [vw_month].[month_name] AS [month_name]
     FROM [dbo].[vw_month] AS [vw_month]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_monthbhosri" EntityType="Self.vw_monthbhosri" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_monthbhosri].[month_id] AS [month_id], 
+    [vw_monthbhosri].[month_name] AS [month_name]
+    FROM [dbo].[vw_monthbhosri] AS [vw_monthbhosri]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_registrations" EntityType="Self.vw_registrations" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_registrations].[Student Name] AS [Student Name], 
+    [vw_registrations].[Course Name] AS [Course Name], 
+    [vw_registrations].[Date Of joining] AS [Date Of joining]
+    FROM [dbo].[vw_registrations] AS [vw_registrations]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_students" EntityType="Self.vw_students" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_students].[student_name] AS [student_name], 
+    [vw_students].[Student Name] AS [Student Name], 
     [vw_students].[CNIC] AS [CNIC], 
     [vw_students].[DOB] AS [DOB], 
-    [vw_students].[course_name] AS [course_name], 
+    [vw_students].[Course Name] AS [Course Name], 
     [vw_students].[doj] AS [doj], 
     [vw_students].[student_fees] AS [student_fees]
     FROM [dbo].[vw_students] AS [vw_students]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vw_teacher_courses" EntityType="Self.vw_teacher_courses" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_teacher_courses].[Teacher Course ID] AS [Teacher Course ID], 
+    [vw_teacher_courses].[Teacher Name] AS [Teacher Name], 
+    [vw_teacher_courses].[Course Name] AS [Course Name], 
+    [vw_teacher_courses].[Date Of Joining] AS [Date Of Joining]
+    FROM [dbo].[vw_teacher_courses] AS [vw_teacher_courses]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_teacher_salaries" EntityType="Self.vw_teacher_salaries" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vw_teacher_salaries].[teacher_id] AS [teacher_id], 
     [vw_teacher_salaries].[teacher_name] AS [teacher_name], 
     [vw_teacher_salaries].[DOB] AS [DOB], 
     [vw_teacher_salaries].[month_name] AS [month_name], 
@@ -529,10 +617,10 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
           </EntitySet>
           <EntitySet Name="vw_teachers" EntityType="Self.vw_teachers" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_teachers].[teacher_name] AS [teacher_name], 
+    [vw_teachers].[Teacher Name] AS [Teacher Name], 
     [vw_teachers].[CNIC] AS [CNIC], 
     [vw_teachers].[DOB] AS [DOB], 
-    [vw_teachers].[course_name] AS [course_name], 
+    [vw_teachers].[Course Name] AS [Course Name], 
     [vw_teachers].[doj] AS [doj], 
     [vw_teachers].[teacher_fees] AS [teacher_fees]
     FROM [dbo].[vw_teachers] AS [vw_teachers]</DefiningQuery>
@@ -783,6 +871,27 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
           <NavigationProperty Name="teacher_courses" Relationship="Self.FK__teacher_c__teach__36B12243" FromRole="teachers" ToRole="teacher_courses" />
           <NavigationProperty Name="teacher_salaries" Relationship="Self.FK__teacher_s__teach__3A81B327" FromRole="teachers" ToRole="teacher_salaries" />
         </EntityType>
+        <EntityType Name="vw_attendance">
+          <Key>
+            <PropertyRef Name="student_name" />
+            <PropertyRef Name="course_name" />
+          </Key>
+          <Property Name="student_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="course_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="attendance" Type="Boolean" />
+          <Property Name="attendance_time" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_complaints">
+          <Key>
+            <PropertyRef Name="complain_id" />
+            <PropertyRef Name="student_name" />
+            <PropertyRef Name="course_name" />
+          </Key>
+          <Property Name="complain_id" Type="Int32" Nullable="false" />
+          <Property Name="student_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="course_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="complain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="vw_ex">
           <Key>
             <PropertyRef Name="student_id" />
@@ -793,6 +902,73 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_fees">
+          <Key>
+            <PropertyRef Name="fees_id" />
+            <PropertyRef Name="Student_Name" />
+            <PropertyRef Name="Admin_Name" />
+            <PropertyRef Name="Month_Name" />
+          </Key>
+          <Property Name="fees_id" Type="Int32" Nullable="false" />
+          <Property Name="Student_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Admin_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Month_Name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_month">
+          <Key>
+            <PropertyRef Name="month_id" />
+            <PropertyRef Name="month_name" />
+          </Key>
+          <Property Name="month_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="month_name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_monthbhosri">
+          <Key>
+            <PropertyRef Name="month_id" />
+            <PropertyRef Name="month_name" />
+          </Key>
+          <Property Name="month_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="month_name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_students">
+          <Key>
+            <PropertyRef Name="Student_Name" />
+            <PropertyRef Name="Course_Name" />
+            <PropertyRef Name="student_fees" />
+          </Key>
+          <Property Name="Student_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Course_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="doj" Type="DateTime" Precision="0" />
+          <Property Name="student_fees" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_teacher_salaries">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+            <PropertyRef Name="teacher_name" />
+            <PropertyRef Name="month_name" />
+          </Key>
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="teacher_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="month_name" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="paid_" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_teachers">
+          <Key>
+            <PropertyRef Name="Teacher_Name" />
+            <PropertyRef Name="Course_Name" />
+            <PropertyRef Name="teacher_fees" />
+          </Key>
+          <Property Name="Teacher_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Course_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="doj" Type="DateTime" Precision="0" />
+          <Property Name="teacher_fees" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__feeses__admin_id__5629CD9C">
           <End Role="admins" Type="Self.admin" Multiplicity="0..1" />
@@ -1014,7 +1190,7 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="tutorsystemEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="tutorsystemEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="admins" EntityType="Self.admin" />
           <EntitySet Name="attendances" EntityType="Self.attendance" />
           <EntitySet Name="complaints" EntityType="Self.complaint" />
@@ -1029,7 +1205,15 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
           <EntitySet Name="teacher_salaries" EntityType="Self.teacher_salaries" />
           <EntitySet Name="teacher_salary_details" EntityType="Self.teacher_salary_details" />
           <EntitySet Name="teachers" EntityType="Self.teacher" />
+          <EntitySet Name="vw_attendance" EntityType="Self.vw_attendance" />
+          <EntitySet Name="vw_complaints" EntityType="Self.vw_complaints" />
           <EntitySet Name="vw_ex" EntityType="Self.vw_ex" />
+          <EntitySet Name="vw_fees" EntityType="Self.vw_fees" />
+          <EntitySet Name="vw_month" EntityType="Self.vw_month" />
+          <EntitySet Name="vw_monthbhosri" EntityType="Self.vw_monthbhosri" />
+          <EntitySet Name="vw_students" EntityType="Self.vw_students" />
+          <EntitySet Name="vw_teacher_salaries" EntityType="Self.vw_teacher_salaries" />
+          <EntitySet Name="vw_teachers" EntityType="Self.vw_teachers" />
           <AssociationSet Name="FK__feeses__admin_id__5629CD9C" Association="Self.FK__feeses__admin_id__5629CD9C">
             <End Role="admins" EntitySet="admins" />
             <End Role="feeses" EntitySet="feeses" />
@@ -1102,92 +1286,46 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
             <End Role="teacher_salaries" EntitySet="teacher_salaries" />
             <End Role="teacher_salary_details" EntitySet="teacher_salary_details" />
           </AssociationSet>
-          <EntitySet Name="vw_fees" EntityType="tutorsystemModel.vw_fees" />
-          <EntitySet Name="vw_students" EntityType="tutorsystemModel.vw_students" />
-          <EntitySet Name="vw_teachers" EntityType="tutorsystemModel.vw_teachers" />
-          <EntitySet Name="vw_month" EntityType="tutorsystemModel.vw_month" />
-          <EntitySet Name="vw_teacher_salaries" EntityType="tutorsystemModel.vw_teacher_salaries" />
-          <EntitySet Name="vw_attendance" EntityType="tutorsystemModel.vw_attendance" />
-          <EntitySet Name="vw_complaints" EntityType="tutorsystemModel.vw_complaints" />
+          <EntitySet Name="vw_registrations" EntityType="tutorsystemModel.vw_registrations" />
+          <EntitySet Name="vw_fees_details" EntityType="tutorsystemModel.vw_fees_details" />
+          <EntitySet Name="vw_teacher_courses" EntityType="tutorsystemModel.vw_teacher_courses" />
         </EntityContainer>
-        <EntityType Name="vw_fees">
+        <EntityType Name="vw_registrations">
           <Key>
-            <PropertyRef Name="student_name" />
-            <PropertyRef Name="month_name" />
+            <PropertyRef Name="Student_Name" />
+            <PropertyRef Name="Course_Name" />
           </Key>
-          <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="month_name" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="paid_" Type="Int32" />
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Course_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Of_joining" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityType Name="vw_students">
+        <EntityType Name="vw_fees_details">
           <Key>
-            <PropertyRef Name="student_name" />
-            <PropertyRef Name="course_name" />
-            <PropertyRef Name="student_fees" />
+            <PropertyRef Name="fees_detail_id" />
+            <PropertyRef Name="Student_Name" />
+            <PropertyRef Name="Course_Name" />
           </Key>
-          <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="doj" Type="DateTime" Precision="0" />
-          <Property Name="student_fees" Type="Int32" Nullable="false" />
+          <Property Name="fees_detail_id" Type="Int32" Nullable="false" />
+          <Property Name="Fees_ID" Type="Int32" />
+          <Property Name="Student_Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Of_Joining" Type="DateTime" Precision="0" />
+          <Property Name="Course_Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vw_teachers">
+        <EntityType Name="vw_teacher_courses">
           <Key>
-            <PropertyRef Name="teacher_name" />
-            <PropertyRef Name="course_name" />
-            <PropertyRef Name="teacher_fees" />
+            <PropertyRef Name="Teacher_Course_ID" />
           </Key>
-          <Property Name="teacher_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="doj" Type="DateTime" Precision="0" />
-          <Property Name="teacher_fees" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vw_month">
-          <Key>
-            <PropertyRef Name="month_id" />
-            <PropertyRef Name="month_name" />
-          </Key>
-          <Property Name="month_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="month_name" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="vw_teacher_salaries">
-          <Key>
-            <PropertyRef Name="teacher_name" />
-            <PropertyRef Name="month_name" />
-          </Key>
-          <Property Name="teacher_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="month_name" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="paid_" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vw_attendance">
-          <Key>
-            <PropertyRef Name="student_name" />
-            <PropertyRef Name="course_name" />
-          </Key>
-          <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="attendance" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="vw_complaints">
-          <Key>
-            <PropertyRef Name="student_name" />
-            <PropertyRef Name="course_name" />
-          </Key>
-          <Property Name="student_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="course_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="complain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Teacher_Course_ID" Type="Int32" Nullable="false" />
+          <Property Name="Teacher_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Course_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Of_Joining" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="tutorsystemModelStoreContainer" CdmEntityContainer="tutorsystemEntities">
+        <EntityContainerMapping StorageEntityContainer="tutorsystemModelStoreContainer" CdmEntityContainer="tutorsystemEntities1">
           <EntitySetMapping Name="admins">
             <EntityTypeMapping TypeName="tutorsystemModel.admin">
               <MappingFragment StoreEntitySet="admins">
@@ -1335,6 +1473,26 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vw_attendance">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_attendance">
+              <MappingFragment StoreEntitySet="vw_attendance">
+                <ScalarProperty Name="student_name" ColumnName="student_name" />
+                <ScalarProperty Name="course_name" ColumnName="course_name" />
+                <ScalarProperty Name="attendance" ColumnName="attendance" />
+                <ScalarProperty Name="attendance_time" ColumnName="attendance_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_complaints">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_complaints">
+              <MappingFragment StoreEntitySet="vw_complaints">
+                <ScalarProperty Name="complain_id" ColumnName="complain_id" />
+                <ScalarProperty Name="student_name" ColumnName="student_name" />
+                <ScalarProperty Name="course_name" ColumnName="course_name" />
+                <ScalarProperty Name="complain" ColumnName="complain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_ex">
             <EntityTypeMapping TypeName="tutorsystemModel.vw_ex">
               <MappingFragment StoreEntitySet="vw_ex">
@@ -1349,70 +1507,92 @@ warning 6002: The table/view 'tutorsystem.dbo.vw_teachers' does not have a prima
           <EntitySetMapping Name="vw_fees">
             <EntityTypeMapping TypeName="tutorsystemModel.vw_fees">
               <MappingFragment StoreEntitySet="vw_fees">
-                <ScalarProperty Name="paid_" ColumnName="paid?" />
-                <ScalarProperty Name="month_name" ColumnName="month_name" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="student_name" ColumnName="student_name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_students">
-            <EntityTypeMapping TypeName="tutorsystemModel.vw_students">
-              <MappingFragment StoreEntitySet="vw_students">
-                <ScalarProperty Name="student_fees" ColumnName="student_fees" />
-                <ScalarProperty Name="doj" ColumnName="doj" />
-                <ScalarProperty Name="course_name" ColumnName="course_name" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-                <ScalarProperty Name="student_name" ColumnName="student_name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_teachers">
-            <EntityTypeMapping TypeName="tutorsystemModel.vw_teachers">
-              <MappingFragment StoreEntitySet="vw_teachers">
-                <ScalarProperty Name="teacher_fees" ColumnName="teacher_fees" />
-                <ScalarProperty Name="doj" ColumnName="doj" />
-                <ScalarProperty Name="course_name" ColumnName="course_name" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-                <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+                <ScalarProperty Name="fees_id" ColumnName="fees_id" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+                <ScalarProperty Name="Admin_Name" ColumnName="Admin Name" />
+                <ScalarProperty Name="Month_Name" ColumnName="Month Name" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_month">
             <EntityTypeMapping TypeName="tutorsystemModel.vw_month">
               <MappingFragment StoreEntitySet="vw_month">
-                <ScalarProperty Name="month_name" ColumnName="month_name" />
                 <ScalarProperty Name="month_id" ColumnName="month_id" />
+                <ScalarProperty Name="month_name" ColumnName="month_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_monthbhosri">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_monthbhosri">
+              <MappingFragment StoreEntitySet="vw_monthbhosri">
+                <ScalarProperty Name="month_id" ColumnName="month_id" />
+                <ScalarProperty Name="month_name" ColumnName="month_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_students">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_students">
+              <MappingFragment StoreEntitySet="vw_students">
+                <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="doj" ColumnName="doj" />
+                <ScalarProperty Name="student_fees" ColumnName="student_fees" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vw_teacher_salaries">
             <EntityTypeMapping TypeName="tutorsystemModel.vw_teacher_salaries">
               <MappingFragment StoreEntitySet="vw_teacher_salaries">
-                <ScalarProperty Name="paid_" ColumnName="paid?" />
-                <ScalarProperty Name="month_name" ColumnName="month_name" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
                 <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="month_name" ColumnName="month_name" />
+                <ScalarProperty Name="paid_" ColumnName="paid?" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_attendance">
-            <EntityTypeMapping TypeName="tutorsystemModel.vw_attendance">
-              <MappingFragment StoreEntitySet="vw_attendance">
-                <ScalarProperty Name="attendance" ColumnName="attendance" />
-                <ScalarProperty Name="course_name" ColumnName="course_name" />
-                <ScalarProperty Name="student_name" ColumnName="student_name" />
+          <EntitySetMapping Name="vw_teachers">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_teachers">
+              <MappingFragment StoreEntitySet="vw_teachers">
+                <ScalarProperty Name="Teacher_Name" ColumnName="Teacher Name" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="doj" ColumnName="doj" />
+                <ScalarProperty Name="teacher_fees" ColumnName="teacher_fees" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_complaints">
-            <EntityTypeMapping TypeName="tutorsystemModel.vw_complaints">
-              <MappingFragment StoreEntitySet="vw_complaints">
-                <ScalarProperty Name="complain" ColumnName="complain" />
-                <ScalarProperty Name="course_name" ColumnName="course_name" />
-                <ScalarProperty Name="student_name" ColumnName="student_name" />
+          <EntitySetMapping Name="vw_registrations">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_registrations">
+              <MappingFragment StoreEntitySet="vw_registrations">
+                <ScalarProperty Name="Date_Of_joining" ColumnName="Date Of joining" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_fees_details">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_fees_details">
+              <MappingFragment StoreEntitySet="vw_fees_details">
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="Date_Of_Joining" ColumnName="Date Of Joining" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+                <ScalarProperty Name="Fees_ID" ColumnName="Fees ID" />
+                <ScalarProperty Name="fees_detail_id" ColumnName="fees_detail_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_teacher_courses">
+            <EntityTypeMapping TypeName="tutorsystemModel.vw_teacher_courses">
+              <MappingFragment StoreEntitySet="vw_teacher_courses">
+                <ScalarProperty Name="Date_Of_Joining" ColumnName="Date Of Joining" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+                <ScalarProperty Name="Teacher_Name" ColumnName="Teacher Name" />
+                <ScalarProperty Name="Teacher_Course_ID" ColumnName="Teacher Course ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

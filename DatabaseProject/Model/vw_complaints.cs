@@ -14,6 +14,7 @@ namespace DatabaseProject.Model
     
     public partial class vw_complaints
     {
+        public int complain_id { get; set; }
         public string student_name { get; set; }
         public string course_name { get; set; }
         public string complain { get; set; }

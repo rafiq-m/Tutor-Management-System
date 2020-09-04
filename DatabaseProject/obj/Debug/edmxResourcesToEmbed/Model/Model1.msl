@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="tutorsystemModelStoreContainer" CdmEntityContainer="tutorsystemEntities">
+  <EntityContainerMapping StorageEntityContainer="tutorsystemModelStoreContainer" CdmEntityContainer="tutorsystemEntities1">
     <EntitySetMapping Name="admins">
       <EntityTypeMapping TypeName="tutorsystemModel.admin">
         <MappingFragment StoreEntitySet="admins">
@@ -148,6 +148,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_attendance">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_attendance">
+        <MappingFragment StoreEntitySet="vw_attendance">
+          <ScalarProperty Name="student_name" ColumnName="student_name" />
+          <ScalarProperty Name="course_name" ColumnName="course_name" />
+          <ScalarProperty Name="attendance" ColumnName="attendance" />
+          <ScalarProperty Name="attendance_time" ColumnName="attendance_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_complaints">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_complaints">
+        <MappingFragment StoreEntitySet="vw_complaints">
+          <ScalarProperty Name="complain_id" ColumnName="complain_id" />
+          <ScalarProperty Name="student_name" ColumnName="student_name" />
+          <ScalarProperty Name="course_name" ColumnName="course_name" />
+          <ScalarProperty Name="complain" ColumnName="complain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="vw_ex">
       <EntityTypeMapping TypeName="tutorsystemModel.vw_ex">
         <MappingFragment StoreEntitySet="vw_ex">
@@ -162,70 +182,92 @@
     <EntitySetMapping Name="vw_fees">
       <EntityTypeMapping TypeName="tutorsystemModel.vw_fees">
         <MappingFragment StoreEntitySet="vw_fees">
-          <ScalarProperty Name="paid_" ColumnName="paid?" />
-          <ScalarProperty Name="month_name" ColumnName="month_name" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="student_name" ColumnName="student_name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="vw_students">
-      <EntityTypeMapping TypeName="tutorsystemModel.vw_students">
-        <MappingFragment StoreEntitySet="vw_students">
-          <ScalarProperty Name="student_fees" ColumnName="student_fees" />
-          <ScalarProperty Name="doj" ColumnName="doj" />
-          <ScalarProperty Name="course_name" ColumnName="course_name" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="student_name" ColumnName="student_name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="vw_teachers">
-      <EntityTypeMapping TypeName="tutorsystemModel.vw_teachers">
-        <MappingFragment StoreEntitySet="vw_teachers">
-          <ScalarProperty Name="teacher_fees" ColumnName="teacher_fees" />
-          <ScalarProperty Name="doj" ColumnName="doj" />
-          <ScalarProperty Name="course_name" ColumnName="course_name" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-          <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+          <ScalarProperty Name="fees_id" ColumnName="fees_id" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+          <ScalarProperty Name="Admin_Name" ColumnName="Admin Name" />
+          <ScalarProperty Name="Month_Name" ColumnName="Month Name" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vw_month">
       <EntityTypeMapping TypeName="tutorsystemModel.vw_month">
         <MappingFragment StoreEntitySet="vw_month">
-          <ScalarProperty Name="month_name" ColumnName="month_name" />
           <ScalarProperty Name="month_id" ColumnName="month_id" />
+          <ScalarProperty Name="month_name" ColumnName="month_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_monthbhosri">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_monthbhosri">
+        <MappingFragment StoreEntitySet="vw_monthbhosri">
+          <ScalarProperty Name="month_id" ColumnName="month_id" />
+          <ScalarProperty Name="month_name" ColumnName="month_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_students">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_students">
+        <MappingFragment StoreEntitySet="vw_students">
+          <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+          <ScalarProperty Name="doj" ColumnName="doj" />
+          <ScalarProperty Name="student_fees" ColumnName="student_fees" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vw_teacher_salaries">
       <EntityTypeMapping TypeName="tutorsystemModel.vw_teacher_salaries">
         <MappingFragment StoreEntitySet="vw_teacher_salaries">
-          <ScalarProperty Name="paid_" ColumnName="paid?" />
-          <ScalarProperty Name="month_name" ColumnName="month_name" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
           <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="month_name" ColumnName="month_name" />
+          <ScalarProperty Name="paid_" ColumnName="paid?" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vw_attendance">
-      <EntityTypeMapping TypeName="tutorsystemModel.vw_attendance">
-        <MappingFragment StoreEntitySet="vw_attendance">
-          <ScalarProperty Name="attendance" ColumnName="attendance" />
-          <ScalarProperty Name="course_name" ColumnName="course_name" />
-          <ScalarProperty Name="student_name" ColumnName="student_name" />
+    <EntitySetMapping Name="vw_teachers">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_teachers">
+        <MappingFragment StoreEntitySet="vw_teachers">
+          <ScalarProperty Name="Teacher_Name" ColumnName="Teacher Name" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+          <ScalarProperty Name="doj" ColumnName="doj" />
+          <ScalarProperty Name="teacher_fees" ColumnName="teacher_fees" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vw_complaints">
-      <EntityTypeMapping TypeName="tutorsystemModel.vw_complaints">
-        <MappingFragment StoreEntitySet="vw_complaints">
-          <ScalarProperty Name="complain" ColumnName="complain" />
-          <ScalarProperty Name="course_name" ColumnName="course_name" />
-          <ScalarProperty Name="student_name" ColumnName="student_name" />
+    <EntitySetMapping Name="vw_registrations">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_registrations">
+        <MappingFragment StoreEntitySet="vw_registrations">
+          <ScalarProperty Name="Date_Of_joining" ColumnName="Date Of joining" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_fees_details">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_fees_details">
+        <MappingFragment StoreEntitySet="vw_fees_details">
+          <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+          <ScalarProperty Name="Date_Of_Joining" ColumnName="Date Of Joining" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student Name" />
+          <ScalarProperty Name="Fees_ID" ColumnName="Fees ID" />
+          <ScalarProperty Name="fees_detail_id" ColumnName="fees_detail_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_teacher_courses">
+      <EntityTypeMapping TypeName="tutorsystemModel.vw_teacher_courses">
+        <MappingFragment StoreEntitySet="vw_teacher_courses">
+          <ScalarProperty Name="Date_Of_Joining" ColumnName="Date Of Joining" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course Name" />
+          <ScalarProperty Name="Teacher_Name" ColumnName="Teacher Name" />
+          <ScalarProperty Name="Teacher_Course_ID" ColumnName="Teacher Course ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
